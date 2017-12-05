@@ -245,20 +245,20 @@ Dates.checkVoid = function(YY, MM, DD){
 
 //时分秒的有效检测
 Dates.timeVoid = function(times, index){
-    if(Dates.ymd[1]+1 == Dates.mins[1] && Dates.ymd[2] == Dates.mins[2]){
+        if(Dates.ymd[0] == Dates.mins[0] && Dates.ymd[1]+1 == Dates.mins[1] && Dates.ymd[2] == Dates.mins[2]){
         if(index === 0 && (times < Dates.mins[3])){
             return 1;
-        } else if(index === 1 && times < Dates.mins[4]){
+        } else if(index === 1 && $(Dates.hmsin[0]).val() == Dates.mins[3] && times < Dates.mins[4]){
             return 1;
-        } else if(index === 2 && times < Dates.mins[5]){
+        } else if(index === 2 && $(Dates.hmsin[1]).val() == Dates.mins[4] && $(Dates.hmsin[0]).val() == Dates.mins[3] && times < Dates.mins[5]){
             return 1;
         }
-    } else if(Dates.ymd[1]+1 == Dates.maxs[1] && Dates.ymd[2] == Dates.maxs[2]){
+    } else if(Dates.ymd[0] == Dates.maxs[0]  && Dates.ymd[1]+1 == Dates.maxs[1] && Dates.ymd[2] == Dates.maxs[2]){
         if(index === 0 && times > Dates.maxs[3]){
             return 1;
-        } else if(index === 1 && times > Dates.maxs[4]){
+        } else if(index === 1 && $(Dates.hmsin[0]).val() == Dates.maxs[3] && times > Dates.maxs[4]){
             return 1;
-        } else if(index === 2 && times > Dates.maxs[5]){
+        } else if(index === 2 && $(Dates.hmsin[1]).val() == Dates.maxs[4] && $(Dates.hmsin[0]).val() == Dates.maxs[3] && times > Dates.maxs[5]){
             return 1;
         }
     }
